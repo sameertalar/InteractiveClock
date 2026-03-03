@@ -2,6 +2,9 @@
 <!-- saved from url=(0029)https://toytheater.com/clock/ -->
 <html lang="en-US">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
 
     <title>
       Interactive Clock 
@@ -69,13 +72,19 @@ function handleTick(event) {
 
 function clock(x, y, hour, minute, scale) {
 
+var sanskritColor ="#a0aa6d";
+
+
 // Colors
-var color_Numbers_inner ="#000000";
-var color_Numbers_outer ="#000000";
+var color_Numbers_inner =sanskritColor;
+var color_Numbers_outer =sanskritColor;
+var color_Numbers_Inside ="#535647";
+var color_hour_minute_bars = "#AB6D94";
+
 
 var size_Outer_Circle =350;
 
-  var color_list = ["#000000", "#000000", "#1976D2", "#FF5722", "#388E3C"];
+  var color_list = [sanskritColor, sanskritColor, "#1976D2", "#FF5722", "#388E3C"];
 
   var color_on = true;
   var hour_type = 12;
@@ -174,7 +183,7 @@ var size_Outer_Circle =350;
   for (var i = 1; i <= 12; i++) {
     var radians = (-60 + ((i - 1) * 30)) / 180 * Math.PI;
     hour_numbers[i] = new createjs.Text(i, "76px Roboto", "#34495E");
-    hour_numbers[i].color = clock_color;
+    hour_numbers[i].color = color_Numbers_Inside;
     hour_numbers[i].x = center_x + radius * Math.cos(radians);
     hour_numbers[i].y = 7 + center_y + radius * Math.sin(radians);
     hour_numbers[i].textBaseline = "middle";
@@ -201,7 +210,7 @@ var size_Outer_Circle =350;
   minute_hand_line.alpha = .3;
   minute_hand_line.rotation = 270;
   minute_hand = new createjs.Shape();
-  var minute_hand_fill = minute_hand.graphics.beginFill(minute_color).command;
+  var minute_hand_fill = minute_hand.graphics.beginFill(color_hour_minute_bars).command;
   minute_hand.graphics.drawRect(-20, -5, 330, 10);
   var minute_hand_end = new createjs.Shape();
   minute_hand_end.graphics.beginFill("#000000").moveTo(0, 60).lineTo(60, 60).lineTo(30, 120).lineTo(0, 60).endStroke();
@@ -210,7 +219,7 @@ var size_Outer_Circle =350;
   minute_hand_end.y = 30;
   var minute_hand_grab = new createjs.Shape();
   minute_hand_grab.hitArea = new createjs.Shape();
-  minute_hand_grab.hitArea.graphics.beginFill("#FFF000").drawCircle(30, 140, 60);
+  minute_hand_grab.hitArea.graphics.beginFill("#000000").drawCircle(30, 140, 60);
   minute_hand_grab.rotation = 270;
   minute_hand_grab.x = 130;
   minute_hand_grab.y = 30;
@@ -264,9 +273,9 @@ var size_Outer_Circle =350;
   hour_hand_line.alpha = .3;
   hour_hand_line.rotation = 270;
   hour_hand = new createjs.Shape();
-  hour_hand.graphics.beginFill("#000000").drawRect(-20, -10, 200, 20);
+  hour_hand.graphics.beginFill(color_hour_minute_bars).drawRect(-20, -10, 200, 20);
   var hour_hand_end = new createjs.Shape();
-  hour_hand_end.graphics.beginFill("#95A5A6");
+  hour_hand_end.graphics.beginFill(color_hour_minute_bars);
   hour_hand_end.graphics.moveTo(0, 60).lineTo(60, 60).lineTo(30, 120).lineTo(0, 60);
   hour_hand_end.rotation = 270;
   hour_hand_end.x = 60;
